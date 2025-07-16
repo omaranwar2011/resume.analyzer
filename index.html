@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.jpg" />
+</head>
+
+<body>
+    <div class="glow-wrapper">
+        <div class="wrapper">
+
+            <!-- Resume Upload Section -->
+            <section class="section">
+                <div class="container">
+                    <h1>📄 <span class="highlight">PDF Resume</span> Analyzer</h1>
+                    <p>Drag and drop your resume or select a file to get instant feedback.</p>
+
+                    <div class="upload-box" id="dropArea">
+                        <input type="file" id="fileInput" accept=".pdf" />
+                        <p>Click or Drag & Drop PDF Here</p>
+                    </div>
+
+                    <div id="result" class="result-card hidden">
+                        <h2>🔍 Analysis Result</h2>
+                        <p><strong>Score:</strong> <span id="score">0</span>/100</p>
+                        <ul id="feedbackList"></ul>
+                        <div class="download-buttons">
+                            <button onclick="downloadFeedback()">⬇️ Download TXT</button>
+                            <button onclick="downloadPDF()">📄 Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Job Description Section -->
+            <section class="section">
+                <div class="jd-box">
+                    <h3>📋 Paste Job Description:</h3>
+                    <textarea id="jobDescription" placeholder="Paste the job description here..."></textarea>
+                    <button onclick="matchWithJob()">📎 Match Resume with Job</button>
+                </div>
+            </section>
+
+            <!-- Score Bar Section -->
+            <section class="section">
+                <div class="progress-section">
+                    <h3>📊 Resume Score</h3>
+                    <div class="progress-bar">
+                        <div id="scoreBar"></div>
+                    </div>
+                    <p><strong>Score:</strong> <span id="score">0</span>/100</p>
+                </div>
+            </section>
+
+            <!-- AI Suggestions Section -->
+            <section class="section">
+                <div class="ai-suggestions">
+                    <h3>🤖 AI Suggestions</h3>
+                    <textarea id="chatInput" placeholder="Paste your resume or job description here..."></textarea>
+                    <button onclick="askAI()">💬 Ask AI</button>
+                    <div id="aiResponse" class="chat-box"></div>
+                </div>
+            </section>
+
+            <!-- Auto Resume Generator -->
+            <section class="section">
+                <div class="auto-resume">
+                    <h3>📥 Don’t have a resume?</h3>
+                    <input type="text" id="jobTitle" placeholder="Enter job title (e.g. Web Developer)" />
+                    <input type="text" id="userName" placeholder="Enter your name" />
+                    <button onclick="generateAutoResume()">Generate Resume</button>
+                    <textarea id="generatedResume" placeholder="Your AI resume will appear here..."
+                        rows="10"></textarea>
+                </div>
+            </section>
+
+            <!-- PDF Inline Viewer -->
+            <section class="section">
+                <div class="pdf-preview">
+                    <h3>📄 PDF Preview</h3>
+                    <iframe id="pdfViewer" width="100%" height="500px"></iframe>
+                </div>
+            </section>
+
+            <!-- Fix My Resume -->
+            <section class="section">
+                <div class="fix-resume">
+                    <h3>⚙️ Want AI to fix your resume?</h3>
+                    <textarea id="resumeToFix" placeholder="Paste your resume here..." rows="8"></textarea>
+                    <button onclick="fixMyResume()">🔧 Fix My Resume</button>
+                    <textarea id="fixedResume" placeholder="AI-optimized version will appear here..."
+                        rows="8"></textarea>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
